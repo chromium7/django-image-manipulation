@@ -1,4 +1,6 @@
 env/
-.vscode
-__pycache__
+node_modules/
+.vscode/
+.node
+__pycache__/
 db.sqlite3
