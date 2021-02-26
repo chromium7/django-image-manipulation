@@ -1,5 +1,13 @@
 # Image manipulation web app
 
+###### 26/02/2021
+
+- image manipulation using DCGAN is computationally expensive
+- might take days to train the model without GPU
+- hardware is not strong enough to handle that computations
+- decided to learn and use openCV instead
+- cartoonize, line detection, object recognition
+
 ###### 24/02/2021
 
 Plan:
