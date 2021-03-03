@@ -1,5 +1,13 @@
 # Image manipulation web app
 
+###### 02/03/2021
+
+- fix decision on using openCV
+- split image manipulation to sections
+- face section -> detect face and add accessories with openCV
+- might add CNN to predict emotions, age and sex
+- image filter -> invert color, edge detection with openCV
+
 ###### 26/02/2021
 
 - image manipulation using DCGAN is computationally expensive
