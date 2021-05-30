@@ -1,19 +1,11 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React from "react";
+import LandingPage from "./LandingPage";
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
-    render() {
-        return (
-            <div>
-                <h1>Hello world</h1>
-            </div>
-        )
-    }
+export default function App() {
+  return (
+    <div>
+      <h1>Hello World</h1>
+      <LandingPage />
+    </div>
+  );
 }
-
-const appDiv = document.getElementById("app");
-render(<App />, appDiv);

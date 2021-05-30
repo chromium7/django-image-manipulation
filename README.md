@@ -1,5 +1,12 @@
 # Image manipulation web app
 
+##### 17/05/2021
+
+- finish design
+- use react
+- start frontend first
+
+
 ###### 02/03/2021
 
 - fix decision on using openCV

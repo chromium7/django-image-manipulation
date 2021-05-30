@@ -4,3 +4,4 @@ node_modules/
 .node
 __pycache__/
 db.sqlite3
+todo.txt
