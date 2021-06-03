@@ -11,8 +11,15 @@ const Nav = styled.nav`
   a,
   button,
   div {
-    color: var(--color-on-primary) !important;
+    color: var(--color-on-primary);
   }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+`;
+const Space = styled.div`
+  width: 28px;
 `;
 
 export default function Header() {
@@ -26,14 +33,14 @@ export default function Header() {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <FaBars />
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link active" href="#">
@@ -45,8 +52,11 @@ export default function Header() {
                 About
               </a>
             </li>
+            <li>
+              <Space />
+            </li>
             <li className="nav-item">
-              <NavButton text={"Learn more"} href="#" />
+              <NavButton text={"Learn more"} href={"/"} shadow={true} />
             </li>
           </ul>
         </div>

@@ -9,28 +9,41 @@ const ButtonContainer = styled.a`
   border-radius: 4px;
   padding: 8px 24px;
   text-decoration: none;
+  text-align: center;
 
   :hover {
     cursor: pointer;
+    color: var(--color-secondary);
   }
 
-  &.shadow {
+  &.box-shadow {
     box-shadow: var(--shadow-primary);
   }
 
   &.invert {
     background: var(--color-secondary);
+    color: var(--color-primary);
 
-    &.shadow {
+    &.box-shadow {
       box-shadow: var(--shadow-secondary);
+    }
+
+    :hover {
+      color: var(--color-primary);
     }
   }
 `;
 
-export default function NavButton({ text, invert = false, shadow = false }) {
+export default function NavButton({
+  text,
+  href,
+  invert = false,
+  shadow = false,
+}) {
   return (
     <ButtonContainer
-      className={`${invert ? "invert" : ""} ${shadow ? "shadow" : ""}`}
+      className={`${invert ? "invert" : ""} ${shadow ? "box-shadow" : ""}`}
+      href={href}
     >
       {text}
     </ButtonContainer>
