@@ -19,6 +19,8 @@ export const GlobalStyles = createGlobalStyle`
         --shadow-primary: 0 4px 16px 0 var(--color-secondary);
         --shadow-secondary: 0 4px 16px 0 var(--color-primary);
 
+        --text-title: montserrat, Arial, Helvetica, sans-serif;
+
         --animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         --animation-duration: 1s;
     }
