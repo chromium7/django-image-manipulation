@@ -16,7 +16,8 @@ export const GlobalStyles = createGlobalStyle`
         --color-on-surface: #202030; 
         --color-on-error: #F7F6F3;
 
-        --shadow: 0 4px 16px 0 var(--color-secondary);
+        --shadow-primary: 0 4px 16px 0 var(--color-secondary);
+        --shadow-secondary: 0 4px 16px 0 var(--color-primary);
 
         --animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         --animation-duration: 1s;
