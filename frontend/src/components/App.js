@@ -1,11 +1,16 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { GlobalStyles } from "./UI/globalStyles";
+
 import LandingPage from "./LandingPage";
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-      <LandingPage />
-    </div>
+    <Fragment>
+      <GlobalStyles />
+      <main>
+        <h1>HELLO WORLD</h1>
+        <LandingPage />
+      </main>
+    </Fragment>
   );
 }
