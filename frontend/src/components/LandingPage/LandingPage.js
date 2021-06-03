@@ -1,4 +1,6 @@
 import React from "react";
+import lineBg from "../../../static/images/line-background.svg";
+import LandingTitle from "./LandingTitle";
 
 import { slideIn } from "../UI/animations";
 import styled from "styled-components";
@@ -8,6 +10,23 @@ const Hello = styled.div`
     var(--animation-timing-function);
 `;
 
+const Background = styled.div`
+  background-image: url(${lineBg});
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+`;
+
+const LandingContainer = styled.div`
+  padding-top: 20vh;
+`;
+
 export default function LandingPage() {
-  return <Hello className="container">Hello world 123</Hello>;
+  return (
+    <Background>
+      <LandingContainer className="container">
+        <LandingTitle />
+        <Hello>Hello world</Hello>
+      </LandingContainer>
+    </Background>
+  );
 }
