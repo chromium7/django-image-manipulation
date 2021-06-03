@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import { GlobalStyles } from "./UI/globalStyles";
 
-import LandingPage from "./LandingPage";
+import Header from "./Header/Header";
+import LandingPage from "./LandingPage/LandingPage";
 
 import { slideIn } from "./UI/animations";
 import styled from "styled-components";
@@ -16,6 +17,7 @@ export default function App() {
     <Fragment>
       <GlobalStyles />
       <main>
+        <Header />
         <Hello>
           <h1>Hello world</h1>
         </Hello>
