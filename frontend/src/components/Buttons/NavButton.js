@@ -10,6 +10,7 @@ const ButtonContainer = styled.a`
   padding: 8px 24px;
   text-decoration: none;
   text-align: center;
+  transition: color 0.4s;
 
   :hover {
     cursor: pointer;
