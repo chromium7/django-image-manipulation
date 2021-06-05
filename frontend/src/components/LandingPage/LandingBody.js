@@ -20,6 +20,7 @@ const ContainerBig = styled.div`
     section {
       animation: ${slideIn} var(--animation-duration)
         var(--animation-timing-function);
+      max-width: 40%;
     }
 
     h4 {
@@ -33,7 +34,49 @@ const ContainerBig = styled.div`
   }
 `;
 
-const ContainerMedium = styled.div``;
+const ContainerMedium = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3.2rem 0;
+  border-bottom: 2px solid var(--color-secondary);
+
+  &.reverse {
+    flex-direction: column-reverse;
+  }
+
+  h3 {
+    font-family: var(--text-title);
+  }
+
+  div {
+    width: 40%;
+    margin-top: 2.4rem;
+  }
+
+  a {
+    color: var(--color-primary-variant);
+  }
+
+  img {
+    width: 40%;
+  }
+
+  img,
+  div {
+    animation: ${slideIn} var(--animation-duration)
+      var(--animation-timing-function);
+    max-width: 40%;
+  }
+
+  @media only screen and (min-width: 992px) {
+    flex-direction: row-reverse;
+
+    &.reverse {
+      flex-direction: row;
+    }
+  }
+`;
 
 export default function LandingBody() {
   return (
@@ -44,15 +87,48 @@ export default function LandingBody() {
           <section>
             <FaAccusoft />
             <h4>Hassle free editing</h4>
-            <p>lorem</p>
+            <p>
+              Editing photos couldn't be easier. No complicated tools or
+              confusing UI. Literally just pick the effects that you want in
+              your picture and our code will do all the hard work for you!
+            </p>
           </section>
           <section>
             <FaAdjust />
             <h4>Sophisticated image in a jiffy</h4>
-            <p>Lorem upsum</p>
+            <p>
+              The effects selection we provide will give your image a fresh and
+              unique look. Through a simple edit, you can stand out from other
+              people in social media with your refreshing pictures.
+            </p>
           </section>
         </div>
       </ContainerBig>
+      <ContainerMedium>
+        <img src={placeholder} />
+        <div>
+          <h3>Face detection and many more features</h3>
+          <p>
+            Detect faces in a picture, and many other features are available in
+            the platform and our artificial intelligence system will generate
+            the iedited image for you.
+          </p>
+          <a>Explore all features &rarr;</a>
+        </div>
+      </ContainerMedium>
+      <ContainerMedium>
+        <div>
+          <h3>Image manipulation using openCV</h3>
+          <p>
+            The artificial intelligence and the business logic of our photo
+            editing web app is in openCV. The library openCV is used not only
+            for applying filters but also to do a more advanced task like a face
+            detection.
+          </p>
+          <a>Find out more &rarr;</a>
+        </div>
+        <img src={placeholder} />
+      </ContainerMedium>
     </div>
   );
 }
