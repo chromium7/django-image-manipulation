@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { slideIn } from "../UI/animations";
 import placeholder from "../../../static/images/img-placeholder.jpg";
 import { FaAccusoft, FaAdjust } from "react-icons/fa";
+import EndExplore from "../Shared/EndExplore";
 
 const ContainerBig = styled.div`
   text-align: center;
@@ -18,8 +18,7 @@ const ContainerBig = styled.div`
     margin: 4em 0;
 
     section {
-      animation: ${slideIn} var(--animation-duration)
-        var(--animation-timing-function);
+      animation: var(--animation-slide);
       max-width: 40%;
     }
 
@@ -37,7 +36,7 @@ const ContainerBig = styled.div`
 const ContainerMedium = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 3.2rem 0;
   border-bottom: 2px solid var(--color-secondary);
 
@@ -50,12 +49,12 @@ const ContainerMedium = styled.div`
   }
 
   div {
-    width: 40%;
     margin-top: 2.4rem;
-  }
 
-  a {
-    color: var(--color-primary-variant);
+    a {
+      color: var(--color-primary) !important;
+      cursor: pointer;
+    }
   }
 
   img {
@@ -64,8 +63,7 @@ const ContainerMedium = styled.div`
 
   img,
   div {
-    animation: ${slideIn} var(--animation-duration)
-      var(--animation-timing-function);
+    animation: var(--animation-slide);
     max-width: 40%;
   }
 
@@ -129,6 +127,12 @@ export default function LandingBody() {
         </div>
         <img src={placeholder} />
       </ContainerMedium>
+      <EndExplore
+        title="Start transforming your photos!"
+        subtitle="No sign up, skills nor experience required! Start editing now"
+        invert={true}
+        href="/"
+      />
     </div>
   );
 }

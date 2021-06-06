@@ -22,7 +22,7 @@ const ButtonContainer = styled.a`
   }
 
   &.invert {
-    background: var(--color-secondary);
+    background: var(--color-surface);
     color: var(--color-primary);
 
     &.box-shadow {
