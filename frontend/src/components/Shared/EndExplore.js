@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { SlideIn } from "../UI/animation";
 import NavButton from "../Buttons/NavButton";
 
 const Container = styled.div`
@@ -33,17 +34,19 @@ const Container = styled.div`
 
 export default function EndExplore({ title, subtitle, href, invert }) {
   return (
-    <Container>
-      <div>
-        <h1>{title}</h1>
-        <h5>{subtitle}</h5>
-        <NavButton
-          text="Get started"
-          href={href}
-          invert={invert}
-          shadow={true}
-        />
-      </div>
-    </Container>
+    <SlideIn>
+      <Container>
+        <div>
+          <h1>{title}</h1>
+          <h5>{subtitle}</h5>
+          <NavButton
+            text="Get started"
+            href={href}
+            invert={invert}
+            shadow={true}
+          />
+        </div>
+      </Container>
+    </SlideIn>
   );
 }

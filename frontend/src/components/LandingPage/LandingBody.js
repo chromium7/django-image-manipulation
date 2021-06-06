@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import placeholder from "../../../static/images/img-placeholder.jpg";
 import { FaAccusoft, FaAdjust } from "react-icons/fa";
+
 import EndExplore from "../Shared/EndExplore";
+import { SlideIn } from "../UI/animation";
+import placeholder from "../../../static/images/img-placeholder.jpg";
 
 const ContainerBig = styled.div`
   text-align: center;
@@ -12,13 +14,12 @@ const ContainerBig = styled.div`
     max-width: 80vw;
   }
 
-  div {
+  .inside {
     display: flex;
     justify-content: space-around;
     margin: 4em 0;
 
-    section {
-      animation: var(--animation-slide);
+    div {
       max-width: 40%;
     }
 
@@ -63,7 +64,6 @@ const ContainerMedium = styled.div`
 
   img,
   div {
-    animation: var(--animation-slide);
     max-width: 40%;
   }
 
@@ -81,8 +81,8 @@ export default function LandingBody() {
     <div>
       <ContainerBig>
         <img src={placeholder} />
-        <div>
-          <section>
+        <div class="inside">
+          <SlideIn>
             <FaAccusoft />
             <h4>Hassle free editing</h4>
             <p>
@@ -90,8 +90,9 @@ export default function LandingBody() {
               confusing UI. Literally just pick the effects that you want in
               your picture and our code will do all the hard work for you!
             </p>
-          </section>
-          <section>
+          </SlideIn>
+
+          <SlideIn>
             <FaAdjust />
             <h4>Sophisticated image in a jiffy</h4>
             <p>
@@ -99,34 +100,39 @@ export default function LandingBody() {
               unique look. Through a simple edit, you can stand out from other
               people in social media with your refreshing pictures.
             </p>
-          </section>
+          </SlideIn>
         </div>
       </ContainerBig>
-      <ContainerMedium>
-        <img src={placeholder} />
-        <div>
-          <h3>Face detection and many more features</h3>
-          <p>
-            Detect faces in a picture, and many other features are available in
-            the platform and our artificial intelligence system will generate
-            the iedited image for you.
-          </p>
-          <a>Explore all features &rarr;</a>
-        </div>
-      </ContainerMedium>
-      <ContainerMedium>
-        <div>
-          <h3>Image manipulation using openCV</h3>
-          <p>
-            The artificial intelligence and the business logic of our photo
-            editing web app is in openCV. The library openCV is used not only
-            for applying filters but also to do a more advanced task like a face
-            detection.
-          </p>
-          <a>Find out more &rarr;</a>
-        </div>
-        <img src={placeholder} />
-      </ContainerMedium>
+      <SlideIn>
+        <ContainerMedium>
+          <img src={placeholder} />
+          <div>
+            <h3>Face detection and many more features</h3>
+            <p>
+              Detect faces in a picture, and many other features are available
+              in the platform and our artificial intelligence system will
+              generate the iedited image for you.
+            </p>
+            <a>Explore all features &rarr;</a>
+          </div>
+        </ContainerMedium>
+      </SlideIn>
+      <SlideIn>
+        <ContainerMedium>
+          <div>
+            <h3>Image manipulation using openCV</h3>
+            <p>
+              The artificial intelligence and the business logic of our photo
+              editing web app is in openCV. The library openCV is used not only
+              for applying filters but also to do a more advanced task like a
+              face detection.
+            </p>
+            <a>Find out more &rarr;</a>
+          </div>
+          <img src={placeholder} />
+        </ContainerMedium>
+      </SlideIn>
+
       <EndExplore
         title="Start transforming your photos!"
         subtitle="No sign up, skills nor experience required! Start editing now"

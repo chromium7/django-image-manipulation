@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { slideIn } from "../UI/animations";
 
 export const GlobalStyles = createGlobalStyle`
     html {
@@ -21,10 +20,5 @@ export const GlobalStyles = createGlobalStyle`
         --shadow-secondary: 0 4px 16px 0 var(--color-primary);
 
         --text-title: montserrat, Arial, Helvetica, sans-serif;
-
-        --animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        --animation-duration: 1s;
-
-        --animation-slide: ${slideIn} var(--animation-duration) var(--animation-timing-function);
     }
 `;
