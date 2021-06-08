@@ -11,7 +11,7 @@ const Container = styled.div`
   padding: 4.8rem 0 6rem;
 
   div {
-    max-width: 60%;
+    width: 100%;
     text-align: center;
     animation: var(--animation-slide);
 
@@ -28,6 +28,12 @@ const Container = styled.div`
     a {
       display: inline-block;
       margin-top: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    div {
+      max-width: 60%;
     }
   }
 `;

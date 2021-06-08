@@ -11,16 +11,17 @@ const ContainerBig = styled.div`
   border-bottom: 2px solid var(--color-secondary);
 
   img {
-    max-width: 80vw;
+    width: 100%;
   }
 
   .inside {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     margin: 4em 0;
 
     div {
-      max-width: 40%;
+      margin-bottom: 2rem;
     }
 
     h4 {
@@ -32,18 +33,30 @@ const ContainerBig = styled.div`
       margin-bottom: 0.6rem;
     }
   }
+
+  @media only screen and (min-width: 992px) {
+    img {
+      max-width: 80%;
+    }
+
+    .inside {
+      flex-direction: row;
+
+      div {
+        max-width: 40%;
+        margin-bottom: 0;
+      }
+    }
+  }
 `;
 
 const ContainerMedium = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   padding: 3.2rem 0;
   border-bottom: 2px solid var(--color-secondary);
-
-  &.reverse {
-    flex-direction: column-reverse;
-  }
 
   h3 {
     font-family: var(--text-title);
@@ -59,12 +72,11 @@ const ContainerMedium = styled.div`
   }
 
   img {
-    width: 40%;
+    width: 100%;
   }
 
-  img,
   div {
-    max-width: 40%;
+    max-width: 100%;
   }
 
   @media only screen and (min-width: 992px) {
@@ -73,12 +85,19 @@ const ContainerMedium = styled.div`
     &.reverse {
       flex-direction: row;
     }
+    img {
+      width: 40%;
+    }
+
+    div {
+      max-width: 40%;
+    }
   }
 `;
 
 export default function LandingBody() {
   return (
-    <div>
+    <main>
       <ContainerBig>
         <img src={placeholder} />
         <div class="inside">
@@ -118,7 +137,8 @@ export default function LandingBody() {
         </ContainerMedium>
       </SlideIn>
       <SlideIn>
-        <ContainerMedium>
+        <ContainerMedium className="reverse">
+          <img src={placeholder} />
           <div>
             <h3>Image manipulation using openCV</h3>
             <p>
@@ -129,7 +149,6 @@ export default function LandingBody() {
             </p>
             <a>Find out more &rarr;</a>
           </div>
-          <img src={placeholder} />
         </ContainerMedium>
       </SlideIn>
 
@@ -139,6 +158,6 @@ export default function LandingBody() {
         invert={true}
         href="/"
       />
-    </div>
+    </main>
   );
 }
