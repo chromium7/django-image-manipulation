@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import logo from "../../../static/images/logo-white.png";
@@ -50,9 +51,9 @@ export default function Header() {
       </Svg>
       <Nav className="navbar navbar-expand-lg">
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <img src={logo} height="40" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -67,14 +68,14 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <Link className="nav-link active" to="/features">
                   Features
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li>
                 <Space />

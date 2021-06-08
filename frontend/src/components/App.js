@@ -4,7 +4,9 @@ import { GlobalStyles } from "./UI/globalStyles";
 
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import LandingPage from "./LandingPage/LandingPage";
+import LandingPage from "./Landing/LandingPage";
+import AboutPage from "./About/AboutPage";
+import FeaturesPage from "./Features/FeaturesPage";
 
 export default function App() {
   return (
@@ -14,8 +16,8 @@ export default function App() {
         <Header />
         <Switch>
           <Route path="/" component={LandingPage} exact />
-          {/* <Route path="/about" component={AboutPage} />
-          <Route path="/features" component={FeaturesPage} /> */}
+          <Route path="/about" component={AboutPage} />
+          <Route path="/features" component={FeaturesPage} />
         </Switch>
         <Footer />
       </main>
