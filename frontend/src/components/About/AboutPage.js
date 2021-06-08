@@ -61,6 +61,7 @@ const AboutTools = styled.div`
       img {
         height: 4rem;
         width: auto;
+        margin: 0 1.2rem;
       }
     }
   }
@@ -105,6 +106,7 @@ export default function AboutPage() {
               <img title="javascript" alt="javascript" src={icons.javascript} />
               <img title="react" alt="react" src={icons.react} />
               <img title="sass" alt="sass" src={icons.sass} />
+              <img title="bootstrap" alt="bootstrap" src={icons.bootstrap} />
               <img title="inkscape" alt="inkscape" src={icons.inkscape} />
               <img title="figma" alt="figma" src={icons.figma} />
             </div>

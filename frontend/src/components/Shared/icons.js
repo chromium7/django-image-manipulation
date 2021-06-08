@@ -1,3 +1,4 @@
+import bootstrap from "../../../static/icons/bootstrap.svg";
 import django from "../../../static/icons/django.svg";
 import figma from "../../../static/icons/figma.svg";
 import github from "../../../static/icons/github.svg";
@@ -14,6 +15,7 @@ import sass from "../../../static/icons/sass.svg";
 import selenium from "../../../static/icons/selenium.svg";
 
 const icons = {
+  bootstrap,
   django,
   figma,
   github,
