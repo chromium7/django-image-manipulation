@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import logo from "../../../static/images/logo-white.png";
@@ -81,10 +82,13 @@ export default function Footer() {
           <h5>Information</h5>
           <ul>
             <li>
-              <a href="/about">About</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/features">Features</a>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/features">Features</Link>
             </li>
             <li>
               <a href="https://github.com/chromium7/django-image-manipulation">
