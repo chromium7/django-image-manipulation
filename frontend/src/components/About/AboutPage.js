@@ -3,7 +3,7 @@ import styled from "styled-components";
 import EndExplore from "../Shared/EndExplore";
 
 import { SlideIn } from "../UI/animation";
-
+import placeholder from "../../../static/images/img-placeholder.jpg";
 import logo from "../../../static/images/logo-black.png";
 import icons from "../Shared/icons";
 
@@ -40,9 +40,10 @@ const AboutTitle = styled.div`
 const AboutTools = styled.div`
   width: 100%;
   text-align: center;
+  margin-bottom: 4rem;
 
   h2 {
-    display: block;
+    font-family: var(--text-title);
     margin-bottom: 1.6rem;
   }
 
@@ -68,7 +69,37 @@ const AboutTools = styled.div`
 
   @media only screen and (min-width: 992px) {
     width: 60%;
-    margin: auto;
+    margin: 0 auto 4rem;
+  }
+`;
+
+const AboutCode = styled.div`
+  background: var(--color-dark);
+  height: 80vh;
+  color: var(--color-on-primary);
+  padding: 2rem;
+
+  h2 {
+    font-family: var(--text-title);
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 1.6rem;
+  }
+
+  section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 992px) {
+    section {
+      flex-direction: row;
+    }
+
+    img {
+      width: 50%;
+    }
   }
 `;
 
@@ -113,6 +144,16 @@ export default function AboutPage() {
           </div>
         </AboutTools>
       </SlideIn>
+      <AboutCode>
+        <h2>Behind the scene</h2>
+        <section>
+          <img src={placeholder} />
+          <div>
+            <h3>header</h3>
+            <p>Lorem ipsum lorem ipsum lorem ipsum</p>
+          </div>
+        </section>
+      </AboutCode>
       <EndExplore
         title="Sounds cool!"
         subtitle="Transform my pictures right now"
