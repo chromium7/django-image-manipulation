@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { GlobalStyles } from "./UI/globalStyles";
 
 import Header from "./Header/Header";
@@ -7,13 +8,17 @@ import LandingPage from "./LandingPage/LandingPage";
 
 export default function App() {
   return (
-    <Fragment>
+    <Router>
       <GlobalStyles />
       <main>
         <Header />
-        <LandingPage />
+        <Switch>
+          <Route path="/" component={LandingPage} exact />
+          {/* <Route path="/about" component={AboutPage} />
+          <Route path="/features" component={FeaturesPage} /> */}
+        </Switch>
         <Footer />
       </main>
-    </Fragment>
+    </Router>
   );
 }
