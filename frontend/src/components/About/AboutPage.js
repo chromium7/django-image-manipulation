@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import EndExplore from "../Shared/EndExplore";
+import NavButton from "../Buttons/NavButton";
 
 import { SlideIn } from "../UI/animation";
 import placeholder from "../../../static/images/img-placeholder.jpg";
@@ -75,7 +76,7 @@ const AboutTools = styled.div`
 
 const AboutCode = styled.div`
   background: var(--color-dark);
-  height: 80vh;
+  min-height: 80vh;
   color: var(--color-on-primary);
   padding: 2rem;
 
@@ -90,6 +91,10 @@ const AboutCode = styled.div`
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+
+    div {
+      margin-top: 2rem;
+    }
   }
 
   @media only screen and (min-width: 992px) {
@@ -100,6 +105,28 @@ const AboutCode = styled.div`
     img {
       width: 50%;
     }
+  }
+`;
+
+const AboutConnect = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3.2rem 0;
+  border-bottom: 2px solid var(--color-secondary);
+  text-align: center;
+
+  a {
+    margin-top: 2rem;
+  }
+  h2,
+  p {
+    font-family: var(--text-title);
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.6);
   }
 `;
 
@@ -145,15 +172,29 @@ export default function AboutPage() {
         </AboutTools>
       </SlideIn>
       <AboutCode>
-        <h2>Behind the scene</h2>
-        <section>
-          <img src={placeholder} />
-          <div>
-            <h3>header</h3>
-            <p>Lorem ipsum lorem ipsum lorem ipsum</p>
-          </div>
-        </section>
+        <SlideIn>
+          <h2>Behind the scene</h2>
+          <section>
+            <img src={placeholder} />
+            <div>
+              <h3>header</h3>
+              <p>Lorem ipsum lorem ipsum lorem ipsum</p>
+            </div>
+          </section>
+        </SlideIn>
       </AboutCode>
+      <AboutConnect>
+        <SlideIn>
+          <h2>Connect with me!</h2>
+          <p>Send me an email for feedback or any questions</p>
+          <NavButton
+            text="christofersaputra29@gmail.com"
+            href="/"
+            invert={true}
+            shadow={true}
+          />
+        </SlideIn>
+      </AboutConnect>
       <EndExplore
         title="Sounds cool!"
         subtitle="Transform my pictures right now"

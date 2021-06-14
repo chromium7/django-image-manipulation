@@ -15,13 +15,12 @@ const Container = styled.div`
     text-align: center;
     animation: var(--animation-slide);
 
-    h1,
-    h5 {
+    h2,
+    p {
       font-family: var(--text-title);
     }
 
-    h5 {
-      font-weight: normal;
+    p {
       color: rgba(0, 0, 0, 0.6);
     }
 
@@ -43,8 +42,8 @@ export default function EndExplore({ title, subtitle, href, invert }) {
     <SlideIn>
       <Container>
         <div>
-          <h1>{title}</h1>
-          <h5>{subtitle}</h5>
+          <h2>{title}</h2>
+          <p>{subtitle}</p>
           <NavButton
             text="Get started"
             href={href}
