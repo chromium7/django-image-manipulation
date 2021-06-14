@@ -1,20 +1,13 @@
 import React from "react";
 import EndExplore from "../Shared/EndExplore";
-import placeholder from "../../../static/images/img-placeholder.jpg";
-import FeatureCard from "./FeatureCard";
+import FeatureCards from "./FeatureCards";
 
 export default function FeaturesPage() {
   return (
-    <div>
+    <div className="container">
       <h1>Hllo world</h1>
 
-      <div>
-        <FeatureCard
-          src={placeholder}
-          title={test}
-          description={"hello world lorem ipsum this is a test description"}
-        />
-      </div>
+      <FeatureCards />
       <EndExplore
         title="Sounds cool!"
         subtitle="Transform my pictures right now"
