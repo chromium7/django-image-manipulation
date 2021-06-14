@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+import ImageSlider from "./ImageSlider";
 import placeholder from "../../../static/images/img-placeholder.jpg";
+import placeholder2 from "../../../static/images/img-placeholder2.jpg";
+import { SlideIn } from "../UI/animation";
 
 const Container = styled.div`
   position: relative;
@@ -24,20 +27,18 @@ const Container = styled.div`
   h1 {
     color: var(--color-primary);
   }
-
-  img {
-    width: 65vw;
-  }
 `;
 
 export default function FeatureDemo() {
   return (
     <Container>
       <div className="background"></div>
-      <div className="container">
-        <h1>Hello world</h1>
+      <div className="container" style={{ padding: 0 }}>
+        <SlideIn>
+          <h1>Hello world</h1>
 
-        <img src={placeholder} />
+          <ImageSlider before={placeholder} after={placeholder2} />
+        </SlideIn>
       </div>
     </Container>
   );
