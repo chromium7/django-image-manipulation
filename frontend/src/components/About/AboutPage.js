@@ -3,40 +3,11 @@ import styled from "styled-components";
 import EndExplore from "../Shared/EndExplore";
 import NavButton from "../Buttons/NavButton";
 
+import { TitleContainer } from "../Shared/containers";
 import { SlideIn } from "../UI/animation";
 import placeholder from "../../../static/images/img-placeholder.jpg";
 import logo from "../../../static/images/logo-black.png";
 import icons from "../Shared/icons";
-
-const AboutTitle = styled.div`
-  width: 100%;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  div {
-    text-align: center;
-
-    h1 {
-      font-family: var(--text-title);
-      font-weight: bolder;
-    }
-
-    p {
-      color: rgba(0, 0, 0, 0.6);
-      margin-bottom: 2.6rem;
-    }
-  }
-
-  @media only screen and (min-width: 992px) {
-    height: 70vh;
-
-    div {
-      max-width: 60%;
-    }
-  }
-`;
 
 const AboutTools = styled.div`
   width: 100%;
@@ -133,7 +104,7 @@ const AboutConnect = styled.div`
 export default function AboutPage() {
   return (
     <div className="container">
-      <AboutTitle>
+      <TitleContainer>
         <div>
           <h1>About imapulator</h1>
           <p>
@@ -142,7 +113,7 @@ export default function AboutPage() {
           </p>
           <img src={logo} />
         </div>
-      </AboutTitle>
+      </TitleContainer>
       <SlideIn>
         <AboutTools>
           <h2>Languages and Tools</h2>
