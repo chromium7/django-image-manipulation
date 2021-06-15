@@ -156,7 +156,7 @@ export default function LandingBody() {
         title="Start transforming your photos!"
         subtitle="No sign up, skills nor experience required! Start editing now"
         invert={true}
-        href="/"
+        href="/edit"
       />
     </main>
   );

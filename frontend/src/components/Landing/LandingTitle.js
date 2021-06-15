@@ -54,7 +54,7 @@ export default function LandingTitle() {
           No sign up required. Instantly add cool effects to your image by
           selecting from the available filters we provide at imapulator!
         </p>
-        <NavButton href={"/"} shadow={true} text={"Edit pictures now!"} />
+        <NavButton href={"/edit"} shadow={true} text={"Edit pictures now!"} />
       </Title>
     </Container>
   );

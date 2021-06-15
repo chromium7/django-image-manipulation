@@ -81,7 +81,11 @@ export default function Header() {
                 <Space />
               </li>
               <li className="nav-item">
-                <NavButton text={"Edit pictures"} href={"/"} shadow={true} />
+                <NavButton
+                  text={"Edit pictures"}
+                  href={"/edit"}
+                  shadow={true}
+                />
               </li>
             </ul>
           </div>

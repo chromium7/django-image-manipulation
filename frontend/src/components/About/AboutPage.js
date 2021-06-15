@@ -170,7 +170,7 @@ export default function AboutPage() {
         title="Sounds cool!"
         subtitle="Transform my pictures right now"
         invert={false}
-        href="/"
+        href="/edit"
       />
     </div>
   );

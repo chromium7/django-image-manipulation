@@ -27,7 +27,7 @@ export default function FeaturesPage() {
           title="Sounds cool!"
           subtitle="Transform my pictures right now"
           invert={false}
-          href="/"
+          href="/edit"
         />
       </div>
     </Fragment>
