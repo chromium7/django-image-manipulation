@@ -8,6 +8,7 @@ const Container = styled.div`
 
   h1 {
     font-family: var(--text-title);
+    margin-bottom: 1.4rem;
   }
 `;
 
