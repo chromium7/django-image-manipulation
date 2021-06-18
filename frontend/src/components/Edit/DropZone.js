@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { useDropzone } from "react-dropzone";
-import styled from "styled-components";
+
 import { FaImages } from "react-icons/fa";
+import { ZoomIn } from "../UI/animation";
+import styled from "styled-components";
+import { useDropzone } from "react-dropzone";
 
 const Zone = styled.div`
-  height: 40vh;
+  height: 50vh;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -18,12 +20,20 @@ const Zone = styled.div`
   background-color: #fafafa;
   color: #bdbdbd;
   outline: none;
-  transition: border 0.24s ease-in-out;
+  transition: all 0.24s ease-in-out;
   cursor: pointer;
 
   &:focus,
   &:hover {
     border-color: #2196f3;
+  }
+
+  &.hidden {
+    height: 10vh;
+
+    svg {
+      display: none;
+    }
   }
 
   svg {
@@ -68,9 +78,11 @@ export default function DropZone({ files, setFiles }) {
   });
 
   const thumbs = files.map((file) => (
-    <Thumb key={file.name}>
-      <img src={file.preview} />
-    </Thumb>
+    <ZoomIn>
+      <Thumb key={file.name}>
+        <img src={file.preview} />
+      </Thumb>
+    </ZoomIn>
   ));
 
   useEffect(
@@ -83,7 +95,7 @@ export default function DropZone({ files, setFiles }) {
 
   return (
     <section className="container">
-      <Zone {...getRootProps()}>
+      <Zone {...getRootProps()} className={files.length != 0 ? "hidden" : ""}>
         <input {...getInputProps()} />
         <FaImages />
         <div>Drag 'n' drop some files here, or click to select files</div>

@@ -13,3 +13,11 @@ export function SlideIn(props) {
     </ScrollAnimation>
   );
 }
+
+export function ZoomIn(props) {
+  return (
+    <ScrollAnimation animateIn="animate__zoomIn" animateOnce={true}>
+      {props.children}
+    </ScrollAnimation>
+  );
+}
