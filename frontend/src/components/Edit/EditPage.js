@@ -12,13 +12,29 @@ const Container = styled.div`
   }
 `;
 
+const Filters = styled.div`
+  margin-top: 2.6rem;
+  h2 {
+    font-family: var(--text-title);
+  }
+  ul {
+    list-style-type: none;
+  }
+`;
+
 export default function EditPage() {
-  const [image, setImage] = useState(null);
+  const [files, setFiles] = useState([]);
 
   return (
     <Container className="container">
       <h1>Upload a picture to edit</h1>
-      <DropZone setImage={setImage} />
+      <DropZone files={files} setFiles={setFiles} />
+      <Filters>
+        <h2>Select filters to apply</h2>
+        <ul>
+          <li></li>
+        </ul>
+      </Filters>
     </Container>
   );
 }

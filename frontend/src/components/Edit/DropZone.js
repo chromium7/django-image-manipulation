@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import { FaImages } from "react-icons/fa";
@@ -19,6 +19,7 @@ const Zone = styled.div`
   color: #bdbdbd;
   outline: none;
   transition: border 0.24s ease-in-out;
+  cursor: pointer;
 
   &:focus,
   &:hover {
@@ -31,14 +32,54 @@ const Zone = styled.div`
   }
 `;
 
-export default function DropZone(props) {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+const ThumbsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  justify-content: space-around;
+`;
 
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
+const Thumb = styled.div`
+  border-radius: 5px;
+  border: 4px solid var(--color-surface);
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  height: 40vh;
+  padding: 0.6rem;
+
+  img {
+    height: 100%;
+  }
+`;
+
+export default function DropZone({ files, setFiles }) {
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*",
+    onDrop: (acceptedFiles) => {
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      );
+    },
+  });
+
+  const thumbs = files.map((file) => (
+    <Thumb key={file.name}>
+      <img src={file.preview} />
+    </Thumb>
   ));
+
+  useEffect(
+    () => () => {
+      // Make sure to revoke the data uris to avoid memory leaks
+      files.forEach((file) => URL.revokeObjectURL(file.preview));
+    },
+    [files]
+  );
 
   return (
     <section className="container">
@@ -47,10 +88,7 @@ export default function DropZone(props) {
         <FaImages />
         <div>Drag 'n' drop some files here, or click to select files</div>
       </Zone>
-      <aside>
-        <h4>Files</h4>
-        <ul>{files}</ul>
-      </aside>
+      <ThumbsContainer>{thumbs}</ThumbsContainer>
     </section>
   );
 }
