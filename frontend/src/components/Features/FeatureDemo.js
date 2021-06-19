@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 
 import ImageSlider from "./ImageSlider";
+import { SlideIn } from "../UI/animation";
 import placeholder from "../../../static/images/img-placeholder.jpg";
 import placeholder2 from "../../../static/images/img-placeholder2.jpg";
-import { SlideIn } from "../UI/animation";
+import staticImages from "../Shared/images";
+import styled from "styled-components";
 
 const Container = styled.div`
   position: relative;
@@ -69,7 +70,11 @@ export default function FeatureDemo() {
       case "enhance":
         return setImages([placeholder2, placeholder, "enhance"]);
       case "detect":
-        return setImages([placeholder, placeholder2, "detect"]);
+        return setImages([
+          staticImages.edgeBefore,
+          staticImages.edgeAfter,
+          "detect",
+        ]);
       default:
         throw new Error("invalid filter value");
     }

@@ -32,7 +32,9 @@ def detect_edge(filename):
 
     cv2.imshow('s',img)
     cv2.imshow('caany', canny)
+    cv2.imwrite('o.jpg', canny)
 
     cv2.waitKey()
+    return canny
 
-detect_edge('img.jpg')
+detect_edge('img2.jpg')
