@@ -8,7 +8,7 @@ def blur(filename):
     '''
     img = cv2.imread(filename)
     output = cv2.blur(img, (5,5) )
-    cv2.imwrite("Output.jpg", output)
+    cv2.imwrite("blur_after.jpg", output)
     return output
 
 
@@ -19,7 +19,7 @@ def sharpen(filename):
     img = cv2.imread(filename)
     kernel = np.array([[-1, -1, -1, -1, -1], [-1, 2, 2, 2, -1], [-1, 2, 8, 2, -1], [-1, 2, 2, 2, -1], [-1, -1, -1, -1, -1]]) / 8.0
     output = cv2.filter2D(img, -1, kernel)
-    cv2.imwrite("O.jpg", output)
+    cv2.imwrite("sharpen_after.jpg", output)
     return output
 
 
@@ -28,13 +28,34 @@ def detect_edge(filename):
     Detect edge in image with canny edge detector
     '''
     img = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
-    canny = cv2.Canny(img, 60, 320)
+    output = cv2.Canny(img, 50, 320)
+    cv2.imwrite('edge_after.jpg', output)
+    return output
 
-    cv2.imshow('s',img)
-    cv2.imshow('caany', canny)
-    cv2.imwrite('o.jpg', canny)
 
-    cv2.waitKey()
-    return canny
+def cartoonize(filename):
+    '''
+    Transform image to handrawn / cartoonish image
+    '''
+    img = cv2.imread(filename)
 
-detect_edge('img2.jpg')
+    # Convert image to grayscale
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    
+    # Apply median filter to the grayscale image
+    img_gray = cv2.medianBlur(img_gray, 7)
+    
+    # Detect edges in the image and threshold it
+    edges = cv2.Laplacian(img_gray, cv2.CV_8U, ksize=5)
+    ret, mask = cv2.threshold(edges, 60, 255, cv2.THRESH_BINARY_INV)
+    
+    # 'mask' is the sketch of the image
+    output = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
+
+    cv2.imwrite('cartoon_after.jpg', output)
+    return output
+
+# blur('blur_before.jpg')
+# sharpen('sharpen_before.jpg')
+# detect_edge('edge_before.jpg')
+# cartoonize('cartoon_before.jpg')

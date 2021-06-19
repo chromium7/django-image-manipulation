@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+
 import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 40vh;
   overflow: hidden;
   position: relative;
 
@@ -25,7 +26,7 @@ const Container = styled.div`
     overflow: hidden;
 
     img {
-      width: 100vw;
+      width: 92.5vw;
       height: 100%;
 
       @media only screen and (min-width: 576px) {
@@ -97,6 +98,14 @@ const Container = styled.div`
       right: 50%;
       margin-right: -17px;
     }
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 70vh;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    height: 90vh;
   }
 `;
 

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import ImageSlider from "./ImageSlider";
 import { SlideIn } from "../UI/animation";
-import placeholder from "../../../static/images/img-placeholder.jpg";
-import placeholder2 from "../../../static/images/img-placeholder2.jpg";
 import staticImages from "../Shared/images";
 import styled from "styled-components";
 
@@ -32,6 +30,7 @@ const Container = styled.div`
 
 const Buttons = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -57,22 +56,38 @@ const Buttons = styled.div`
 `;
 
 export default function FeatureDemo() {
-  const [images, setImages] = useState([placeholder, placeholder2, "cartoon"]);
+  const [images, setImages] = useState([
+    staticImages.cartoonAfter,
+    staticImages.cartoonBefore,
+    "cartoon",
+  ]);
 
   function changeImage(e) {
     const val = e.target.value;
 
     switch (val) {
       case "cartoon":
-        return setImages([placeholder2, placeholder, "cartoon"]);
+        return setImages([
+          staticImages.cartoonAfter,
+          staticImages.cartoonBefore,
+          "cartoon",
+        ]);
       case "blur":
-        return setImages([placeholder, placeholder2, "blur"]);
+        return setImages([
+          staticImages.blurAfter,
+          staticImages.blurBefore,
+          "blur",
+        ]);
       case "enhance":
-        return setImages([placeholder2, placeholder, "enhance"]);
+        return setImages([
+          staticImages.enhanceAfter,
+          staticImages.enhanceBefore,
+          "enhance",
+        ]);
       case "detect":
         return setImages([
-          staticImages.edgeBefore,
           staticImages.edgeAfter,
+          staticImages.edgeBefore,
           "detect",
         ]);
       default:
@@ -115,7 +130,7 @@ export default function FeatureDemo() {
               onClick={changeImage}
               className={images[2] == "detect" ? "active" : ""}
             >
-              Face detection
+              Edge detection
             </button>
           </Buttons>
 
