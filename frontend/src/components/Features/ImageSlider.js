@@ -150,10 +150,6 @@ export default function ImageSlider({ before, after }) {
   var divisor = useRef();
   var handle = useRef();
   var slider = useRef();
-  var i = useRef();
-  useEffect(() => {
-    console.log();
-  });
 
   function moveDivisor() {
     handle.current.style.left = slider.current.value / 10 + "%";
@@ -166,7 +162,7 @@ export default function ImageSlider({ before, after }) {
         <div ref={handle} id="handle"></div>
       </figure>
       <div ref={divisor} id="divisor">
-        <img src={after} ref={i} />
+        <img src={after} />
       </div>
       <Slider
         type="range"

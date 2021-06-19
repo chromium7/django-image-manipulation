@@ -6,6 +6,8 @@ import edgeAfter from "../../../static/images/edge_after.jpg";
 import edgeBefore from "../../../static/images/edge_before.jpg";
 import enhanceAfter from "../../../static/images/enhance_after.jpg";
 import enhanceBefore from "../../../static/images/enhance_before.jpg";
+import faceAfter from "../../../static/images/face_after.jpg";
+import faceBefore from "../../../static/images/face_before.jpg";
 
 const staticImages = {
   blurAfter,
@@ -16,6 +18,8 @@ const staticImages = {
   edgeAfter,
   enhanceBefore,
   enhanceAfter,
+  faceAfter,
+  faceBefore,
 };
 
 export default staticImages;

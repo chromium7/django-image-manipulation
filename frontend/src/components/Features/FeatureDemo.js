@@ -90,6 +90,12 @@ export default function FeatureDemo() {
           staticImages.edgeBefore,
           "detect",
         ]);
+      case "face":
+        return setImages([
+          staticImages.faceAfter,
+          staticImages.faceBefore,
+          "face",
+        ]);
       default:
         throw new Error("invalid filter value");
     }
@@ -131,6 +137,13 @@ export default function FeatureDemo() {
               className={images[2] == "detect" ? "active" : ""}
             >
               Edge detection
+            </button>
+            <button
+              value="face"
+              onClick={changeImage}
+              className={images[2] == "face" ? "active" : ""}
+            >
+              Face detection
             </button>
           </Buttons>
 

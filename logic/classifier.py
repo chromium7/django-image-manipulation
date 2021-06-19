@@ -1,6 +1,4 @@
 import cv2
-import math
-import numpy as np
 
 def detect_face(file):
     face_cascade = cv2.CascadeClassifier('./cascade_files/haarcascade_frontalface_alt.xml')

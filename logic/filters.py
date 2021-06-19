@@ -55,6 +55,21 @@ def cartoonize(filename):
     cv2.imwrite('cartoon_after.jpg', output)
     return output
 
+
+def detect_face(filename):
+    face_cascade = cv2.CascadeClassifier('./cascade_files/haarcascade_frontalface_alt.xml')
+    img = cv2.imread(filename)
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    face_rects = face_cascade.detectMultiScale(img_gray, minNeighbors=1, minSize=(30, 30))
+    for (x, y, w, h) in face_rects:
+        cv2.rectangle(img, (x,y), (x+w, y+h), (0, 255, 0), 3)
+
+    cv2.imwrite('face_after.jpg', img)
+    return img
+
+
+# detect_face('face_before.jpg')
 # blur('blur_before.jpg')
 # sharpen('sharpen_before.jpg')
 # detect_edge('edge_before.jpg')
