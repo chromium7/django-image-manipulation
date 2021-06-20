@@ -1,13 +1,12 @@
-import React from "react";
-import styled from "styled-components";
 import EndExplore from "../Shared/EndExplore";
 import NavButton from "../Buttons/NavButton";
-
-import { TitleContainer } from "../Shared/containers";
+import React from "react";
 import { SlideIn } from "../UI/animation";
-import placeholder from "../../../static/images/img-placeholder.jpg";
-import logo from "../../../static/images/logo-black.png";
+import { TitleContainer } from "../Shared/containers";
 import icons from "../Shared/icons";
+import logo from "../../../static/images/logo-black.png";
+import staticImages from "../Shared/images";
+import styled from "styled-components";
 
 const AboutTools = styled.div`
   width: 100%;
@@ -146,7 +145,7 @@ export default function AboutPage() {
         <SlideIn>
           <h2>Behind the scene</h2>
           <section>
-            <img src={placeholder} />
+            <img src={staticImages.code} />
             <div>
               <h3>header</h3>
               <p>Lorem ipsum lorem ipsum lorem ipsum</p>

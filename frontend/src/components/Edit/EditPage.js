@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+
 import DropZone from "./DropZone";
+import EditFilters from "./EditFilters";
+import styled from "styled-components";
 
 const Container = styled.div`
   padding-top: 3rem;
@@ -24,6 +26,7 @@ const Filters = styled.div`
 
 export default function EditPage() {
   const [files, setFiles] = useState([]);
+  const [filters, setFilters] = useState([]);
 
   return (
     <Container className="container">
@@ -31,9 +34,7 @@ export default function EditPage() {
       <DropZone files={files} setFiles={setFiles} />
       <Filters>
         <h2>Select filters to apply</h2>
-        <ul>
-          <li></li>
-        </ul>
+        <EditFilters filters={filters} setFilters={setFilters} />
       </Filters>
     </Container>
   );
