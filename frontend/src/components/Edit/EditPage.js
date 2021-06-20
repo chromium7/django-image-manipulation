@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import DropZone from "./DropZone";
 import EditFilters from "./EditFilters";
+import PageSpinner from "../UI/PageSpinner";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -14,7 +15,7 @@ const Container = styled.div`
   }
 `;
 
-const Filters = styled.div`
+const InsideContainer = styled.div`
   margin-top: 2.6rem;
   h2 {
     font-family: var(--text-title);
@@ -27,15 +28,29 @@ const Filters = styled.div`
 export default function EditPage() {
   const [files, setFiles] = useState([]);
   const [filters, setFilters] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  function send(e) {
+    e.preventDefault();
+
+    setIsLoading(true);
+  }
+
+  if (isLoading) {
+    return <PageSpinner />;
+  }
 
   return (
     <Container className="container">
       <h1>Upload a picture to edit</h1>
       <DropZone files={files} setFiles={setFiles} />
-      <Filters>
+      <InsideContainer>
         <h2>Select filters to apply</h2>
         <EditFilters filters={filters} setFilters={setFilters} />
-      </Filters>
+      </InsideContainer>
+      <InsideContainer>
+        <button onClick={send}>Transform image</button>
+      </InsideContainer>
     </Container>
   );
 }
