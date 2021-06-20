@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
 import DropZone from "./DropZone";
+import EditButton from "../Buttons/EditButton";
 import EditFilters from "./EditFilters";
 import PageSpinner from "../UI/PageSpinner";
 import styled from "styled-components";
 
 const Container = styled.div`
-  padding-top: 3rem;
+  padding: 3rem 0;
   text-align: center;
 
   h1 {
@@ -49,7 +50,7 @@ export default function EditPage() {
         <EditFilters filters={filters} setFilters={setFilters} />
       </InsideContainer>
       <InsideContainer>
-        <button onClick={send}>Transform image</button>
+        <EditButton text="Transform image" onClick={send} />
       </InsideContainer>
     </Container>
   );

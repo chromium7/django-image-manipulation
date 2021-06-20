@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.a`
-  display: block;
+const Container = styled.button`
   background: var(--color-primary);
   color: var(--color-on-primary);
   border: none;
@@ -35,16 +34,16 @@ const Container = styled.a`
   }
 `;
 
-export default function NavButton({
+export default function EditButton({
   text,
-  href,
   invert = false,
   shadow = false,
+  onClick,
 }) {
   return (
     <Container
       className={`${invert ? "invert" : ""} ${shadow ? "box-shadow" : ""}`}
-      href={href}
+      onClick={onClick}
     >
       {text}
     </Container>
