@@ -1,6 +1,86 @@
 import React from "react";
 import styled from "styled-components";
 
+export default function EditFilters({ filters, setFilters }) {
+  function checkboxHandler(e) {
+    if (e.target.checked) {
+      setFilters((curr) => [...curr, e.target.value]);
+    } else {
+      setFilters((curr) => curr.filter((value) => value != e.target.value));
+    }
+  }
+
+  return (
+    <Container>
+      <Checkbox>
+        <input
+          type="checkbox"
+          class="checkbox-input"
+          value="cartoon"
+          name="cartoon"
+          id="cartoon"
+          onClick={checkboxHandler}
+        />
+        <span class="checkbox-tile">
+          <span class="checkbox-label">Cartoon</span>
+        </span>
+      </Checkbox>
+      <Checkbox>
+        <input
+          type="checkbox"
+          class="checkbox-input"
+          value="blur"
+          name="blur"
+          id="blur"
+          onClick={checkboxHandler}
+        />
+        <span class="checkbox-tile">
+          <span class="checkbox-label">Blur</span>
+        </span>
+      </Checkbox>
+      <Checkbox>
+        <input
+          type="checkbox"
+          class="checkbox-input"
+          value="enhance"
+          name="enhance"
+          id="enhance"
+          onClick={checkboxHandler}
+        />
+        <span class="checkbox-tile">
+          <span class="checkbox-label">Enhance</span>
+        </span>
+      </Checkbox>
+      <Checkbox>
+        <input
+          type="checkbox"
+          class="checkbox-input"
+          value="edge_detect"
+          name="edge_detect"
+          id="edge_detect"
+          onClick={checkboxHandler}
+        />
+        <span class="checkbox-tile">
+          <span class="checkbox-label">Edge detection</span>
+        </span>
+      </Checkbox>
+      <Checkbox>
+        <input
+          type="checkbox"
+          class="checkbox-input"
+          value="face_detect"
+          name="face_detect"
+          id="face_detect"
+          onClick={checkboxHandler}
+        />
+        <span class="checkbox-tile">
+          <span class="checkbox-label">Face detection</span>
+        </span>
+      </Checkbox>
+    </Container>
+  );
+}
+
 const Container = styled.div`
   width: 100%;
   margin: auto;
@@ -101,84 +181,3 @@ const Checkbox = styled.label`
     text-align: center;
   }
 `;
-
-export default function EditFilters({ filters, setFilters }) {
-  function checkboxHandler(e) {
-    if (e.target.checked) {
-      setFilters((curr) => [...curr, e.target.value]);
-    } else {
-      setFilters((curr) => curr.filter((value) => value != e.target.value));
-    }
-    console.log(filters);
-  }
-
-  return (
-    <Container>
-      <Checkbox>
-        <input
-          type="checkbox"
-          class="checkbox-input"
-          value="cartoon"
-          name="cartoon"
-          id="cartoon"
-          onClick={checkboxHandler}
-        />
-        <span class="checkbox-tile">
-          <span class="checkbox-label">Cartoon</span>
-        </span>
-      </Checkbox>
-      <Checkbox>
-        <input
-          type="checkbox"
-          class="checkbox-input"
-          value="blur"
-          name="blur"
-          id="blur"
-          onClick={checkboxHandler}
-        />
-        <span class="checkbox-tile">
-          <span class="checkbox-label">Blur</span>
-        </span>
-      </Checkbox>
-      <Checkbox>
-        <input
-          type="checkbox"
-          class="checkbox-input"
-          value="enhance"
-          name="enhance"
-          id="enhance"
-          onClick={checkboxHandler}
-        />
-        <span class="checkbox-tile">
-          <span class="checkbox-label">Enhance</span>
-        </span>
-      </Checkbox>
-      <Checkbox>
-        <input
-          type="checkbox"
-          class="checkbox-input"
-          value="edge_detect"
-          name="edge_detect"
-          id="edge_detect"
-          onClick={checkboxHandler}
-        />
-        <span class="checkbox-tile">
-          <span class="checkbox-label">Edge detection</span>
-        </span>
-      </Checkbox>
-      <Checkbox>
-        <input
-          type="checkbox"
-          class="checkbox-input"
-          value="face_detect"
-          name="face_detect"
-          id="face_detect"
-          onClick={checkboxHandler}
-        />
-        <span class="checkbox-tile">
-          <span class="checkbox-label">Face detection</span>
-        </span>
-      </Checkbox>
-    </Container>
-  );
-}
