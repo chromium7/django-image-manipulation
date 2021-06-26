@@ -9,7 +9,7 @@ def blur(img):
     return output
 
 
-def sharpen(img):
+def enhance(img):
     '''
     Sharpen image with edge enhancement kernel
     '''

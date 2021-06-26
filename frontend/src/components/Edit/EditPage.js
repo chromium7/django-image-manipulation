@@ -5,6 +5,7 @@ import EditButton from "../Buttons/EditButton";
 import EditFilters from "./EditFilters";
 import ErrorPage from "../UI/ErrorPage";
 import PageSpinner from "../UI/PageSpinner";
+import SuccessPage from "./SuccessPage";
 import styled from "styled-components";
 
 function EditPage() {
@@ -48,14 +49,9 @@ function EditPage() {
         console.log(err);
       });
   }
+
   if (status === "success") {
-    return (
-      <div>
-        {transformed.map((image) => (
-          <img src={image} />
-        ))}
-      </div>
-    );
+    return <SuccessPage transformed={transformed} />;
   }
 
   if (status === "loading") {

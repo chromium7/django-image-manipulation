@@ -1,3 +1,4 @@
+import EditButton from "../Buttons/EditButton";
 import { FaRegSadTear } from "react-icons/fa";
 import React from "react";
 import styled from "styled-components";
@@ -11,7 +12,14 @@ function ErrorPage() {
       <div>
         Something went wrong.
         <br />
-        <a href="/">Go to homepage</a>
+        <p>
+          <a href="/">Go to homepage</a>
+        </p>
+        <EditButton
+          text="Refresh page"
+          invert={true}
+          onClick={() => window.location.reload()}
+        />
       </div>
     </Container>
   );
