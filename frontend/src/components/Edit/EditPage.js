@@ -11,10 +11,10 @@ function EditPage() {
   const [files, setFiles] = useState([]);
   const [filters, setFilters] = useState([]);
   const [status, setStatus] = useState();
+  const [transformed, setTransformed] = useState([]);
 
   function send(e) {
     e.preventDefault();
-    setStatus("loading");
 
     // Make sure images and filters are present
     if (files.length === 0 || filters.length === 0) {
@@ -22,6 +22,7 @@ function EditPage() {
       return "";
     }
 
+    setStatus("loading");
     let formData = new FormData();
     for (let file of files) {
       formData.append("files", file);
@@ -34,11 +35,27 @@ function EditPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setStatus("success");
+        var images = [];
+        data.images.forEach((image) => {
+          images.push(`data:image/png;base64,${image}`);
+        });
+
+        setTransformed(images);
       })
       .catch((err) => {
+        setStatus("error");
         console.log(err);
       });
+  }
+  if (status === "success") {
+    return (
+      <div>
+        {transformed.map((image) => (
+          <img src={image} />
+        ))}
+      </div>
+    );
   }
 
   if (status === "loading") {
