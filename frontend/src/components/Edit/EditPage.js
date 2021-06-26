@@ -37,12 +37,7 @@ function EditPage() {
       .then((response) => response.json())
       .then((data) => {
         setStatus("success");
-        var images = [];
-        data.images.forEach((image) => {
-          images.push(`data:image/png;base64,${image}`);
-        });
-
-        setTransformed(images);
+        setTransformed(data.images);
       })
       .catch((err) => {
         setStatus("error");

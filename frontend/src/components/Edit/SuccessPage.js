@@ -8,13 +8,18 @@ function SuccessPage({ transformed }) {
     <Container className="container">
       <h1>Your edited images: </h1>
       <ImagesContainer>
-        {transformed.map((image, index) => (
-          <ZoomIn>
-            <Thumb key={index}>
-              <img src={image} />
-            </Thumb>
-          </ZoomIn>
-        ))}
+        {transformed.map((data, index) => {
+          const [title, bytes] = data;
+          const image = `data:image/png;base64,${bytes}`;
+          return (
+            <ZoomIn>
+              <h4>{title}</h4>
+              <Thumb key={index}>
+                <img src={image} />
+              </Thumb>
+            </ZoomIn>
+          );
+        })}
       </ImagesContainer>
       <EditButton
         onClick={() => window.location.reload()}
@@ -40,7 +45,6 @@ const ImagesContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   align-items: center;
 `;
 

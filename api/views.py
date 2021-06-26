@@ -29,19 +29,24 @@ class FileUploadView(APIView):
         results = []
         for filter in filters:
             if filter == "cartoon":
+                title = "Cartoonize"
                 img = logic_filters.cartoonize(image_cv)
             elif filter == "blur":
+                title = "Blur"
                 img = logic_filters.blur(image_cv)
             elif filter == "enhance":
+                title = "Enhance"
                 img = logic_filters.enhance(image_cv)
             elif filter == "edge_detect":
+                title = "Edge detection"
                 img = logic_filters.detect_edge(image_cv)
             elif filter == "face_detect":
+                title = "Face detection"
                 img = logic_filters.detect_face(image_cv)
             else:
                 continue
 
             img = cv2.imencode('.jpg', img)[1].tostring()
             img = base64.b64encode(img)
-            results.append(img)
+            results.append((title, img))
         return results
